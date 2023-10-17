@@ -29,7 +29,7 @@ pipeline {
          stage('deploy') {
             steps {
                 withEnv(['JENKINS_NODE_COOKIE=dontKillMe']){
-                bat 'java -jar -Dserver.port=8001 target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar'
+                bat 'java -jar -Dserver.port=8002 target/spring-petclinic-2.3.1.BUILD-SNAPSHOT.jar'
             }}
          }
     }

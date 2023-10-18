@@ -29,7 +29,7 @@ pipeline {
          stage('deploy') {
             steps {
                bat 'docker build -t spring-app .'
-            }}
+            }
          }
     }
 }

@@ -28,8 +28,7 @@ pipeline {
         }
          stage('deploy') {
             steps {
-                withEnv(['JENKINS_NODE_COOKIE=dontKillMe']){
-                bat 'java -jar -Dserver.port=8003 target/Spring-app.jar'
+               bat 'docker build -t spring-app .'
             }}
          }
     }

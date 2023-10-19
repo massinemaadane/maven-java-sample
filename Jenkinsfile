@@ -27,7 +27,7 @@ pipeline {
         }
          stage('build image') {
             steps {
-               bat 'docker build -t yassinemaadane/spring-app .'
+               bat 'docker build -t myspringapp.azurecr.io/spring-app .'
             }
          }
         stage('push image') {

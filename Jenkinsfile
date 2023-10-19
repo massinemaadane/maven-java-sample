@@ -34,8 +34,8 @@ pipeline {
         stage('push image') {
             steps {
                 script{
-                    withCredentials([string(credentialsId: 'dockerhubCred', variable: 'dockerhubCred')]) {
-                    bat 'docker login -u yassinemaadane -p ${dockerhubCred}'
+                   withCredentials([string(credentialsId: 'dockerhubCredd', variable: 'dockerhubCredd')]) {
+                    bat 'docker login -u yassinemaadane -p ${dockerhubCredd}'
                     }
                     bat 'docker push yassinemaadane/spring-app'
                 }

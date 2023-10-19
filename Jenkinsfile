@@ -33,10 +33,11 @@ pipeline {
         stage('push image') {
             steps {
                 script{
-                    bat 'docker login -u yassinemaadane -p Yassine123@'
+                    bat 'docker login myspringapp.azurecr.io -u MySpringApp -p d7PFOC6ICL4MtfximqmMSOTHeILLTLKJ0QdGAV3APp+ACRCpjMlV'
                     bat 'docker push yassinemaadane/spring-app'
                 }
             }
          }
+       
     }
 }

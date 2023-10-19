@@ -26,9 +26,19 @@ pipeline {
 }
             
         }
-         stage('deploy') {
+         stage('build image') {
             steps {
-               bat 'docker build -t spring-app .'
+               bat 'docker build -t yassinemaadane/spring-app .'
+            }
+         }
+        stage('push image') {
+            steps {
+                script{
+                    withCredentials([string(credentialsId: 'dockerhubCred', variable: 'dockerhubCred')]) {
+                    bat 'docker login -u YassineMaadane -p ${dockerhubCred}'
+                    }
+                    bat 'docker push yassinemaadane/spring-app'
+                }
             }
          }
     }

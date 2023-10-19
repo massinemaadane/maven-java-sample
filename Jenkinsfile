@@ -35,7 +35,7 @@ pipeline {
             steps {
                 script{
                     withCredentials([string(credentialsId: 'dockerhubCred', variable: 'dockerhubCred')]) {
-                    bat 'docker login -u YassineMaadane -p ${dockerhubCred}'
+                    bat 'docker login -u yassinemaadane -p ${dockerhubCred}'
                     }
                     bat 'docker push yassinemaadane/spring-app'
                 }

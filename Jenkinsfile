@@ -1,8 +1,5 @@
 pipeline {
     agent any
-    environment {
-        DOCKERHUB_CREDENTIALS = credentials('dockerhubAccess')
-    }
     stages {
          stage('build') {
             steps {
@@ -36,7 +33,7 @@ pipeline {
         stage('push image') {
             steps {
                 script{
-                  bat 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USER --password-stdin'
+                    bat 'docker login -u yassinemaadane -p Yassine123@'
                     bat 'docker push yassinemaadane/spring-app'
                 }
             }

@@ -1,4 +1,4 @@
 FROM openjdk:11
-EXPOSE 8080
+EXPOSE 8085
 ADD target/Spring-app.jar Spring-app.jar
 ENTRYPOINT ["java","-jar","/Spring-app.jar"]

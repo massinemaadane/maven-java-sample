@@ -13,7 +13,7 @@ spec:
         app: spring-app
     spec:
       containers:
-      - name: my-springboot-app
+      - name: spring-app
         image: myacr321012999999.azurecr.io/spring-app:latest
         imagePullPolicy: Always
         ports:

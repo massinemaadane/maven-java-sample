@@ -17,7 +17,7 @@ spec:
         image: myacr321012999999.azurecr.io/spring-app:latest
         imagePullPolicy: Always
         ports:
-        - containerPort: 8085
+        - containerPort: 2000
 # service type loadbalancer       
 ---
 apiVersion: v1
@@ -32,7 +32,7 @@ spec:
   - name: http
     port: 80
     protocol: TCP
-    targetPort: 8085
+    targetPort: 2000
   type: LoadBalancer
   selector:
     app: spring-app

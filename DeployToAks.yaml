@@ -14,10 +14,10 @@ spec:
     spec:
       containers:
       - name: spring-app
-        image: myacr321012999999.azurecr.io/spring-app:latest
+        image: nginx
         imagePullPolicy: Always
         ports:
-        - containerPort: 2000
+        - containerPort: 8080
 # service type loadbalancer       
 ---
  apiVersion: v1
@@ -32,7 +32,7 @@ spec:
    - name: http
      port: 80
      protocol: TCP
-     targetPort: 2000
+     targetPort: 8080
    type: LoadBalancer
    selector:
      app: spring-app

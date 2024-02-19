@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: my-springboot-deployment
+  name: my-springboot-react-deployment
 spec:
   replicas: 3
   selector:
     matchLabels:
-      app: spring-app
+      app: springboot-react-app
   template:
     metadata:
       labels:
-        app: spring-app
+        app: springboot-react-app
     spec:
       containers:
       - name: spring-app
@@ -18,38 +18,6 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 2000
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: spring-app
-  name: spring-app
-spec:
-  ports:
-  - name: http
-    port: 80
-    protocol: TCP
-    targetPort: 2000
-  type: LoadBalancer
-  selector:
-    app: spring-app
----
-apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: my-react-deployment
-spec:
-  replicas: 3
-  selector:
-    matchLabels:
-      app: react-app
-  template:
-    metadata:
-      labels:
-        app: react-app
-    spec:
-      containers:
       - name: react-app
         image: yassinemaadane/react-app
         imagePullPolicy: Always
@@ -60,14 +28,44 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    app: react-app
+    app: springboot-react-app
+  name: spring-app
+spec:
+  ports:
+  - name: http
+    port: 8080  # External port for Spring Boot
+    targetPort: 2000
+  selector:
+    app: springboot-react-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: springboot-react-app
   name: react-app
 spec:
   ports:
   - name: http
-    port: 80
-    protocol: TCP
+    port: 80  # External port for React
     targetPort: 3000
-  type: LoadBalancer
   selector:
-    app: react-app
+    app: springboot-react-app
+---
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: springboot-react-app
+  name: spring-react-loadbalancer
+spec:
+  ports:
+  - name: spring-app
+    port: 80  # External port for LoadBalancer
+    targetPort: 8080  # Target port for Spring Boot
+  - name: react-app
+    port: 8081  # External port for LoadBalancer
+    targetPort: 80  # Target port for React
+  selector:
+    app: springboot-react-app
+  type: LoadBalancer

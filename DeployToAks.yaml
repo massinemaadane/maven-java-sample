@@ -19,7 +19,7 @@ spec:
         ports:
         - containerPort: 3000
       - name: spring-app
-        image: yassinemaadane/spring-app53
+        image: yassinemaadane/spring-app102
         imagePullPolicy: Always
         ports:
         - containerPort: 2000

@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: spring-app
-        image: yassinemaadane/spring-app
+        image: hello-world
         imagePullPolicy: Always
         ports:
         - containerPort: 8080

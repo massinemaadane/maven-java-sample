@@ -12,6 +12,7 @@ spec:
       labels:
         app: spring-app
     spec:
+      containers:
       - name: react-app
         image: yassinemaadane/react-app
         imagePullPolicy: Always

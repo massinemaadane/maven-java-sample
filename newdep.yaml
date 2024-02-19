@@ -29,43 +29,12 @@ kind: Service
 metadata:
   labels:
     app: springboot-react-app
-  name: spring-app
-spec:
-  ports:
-  - name: http
-    port: 8080  # External port for Spring Boot
-    targetPort: 2000
-  selector:
-    app: springboot-react-app
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: springboot-react-app
   name: react-app
 spec:
   ports:
   - name: http
-    port: 80  # External port for React
-    targetPort: 3000
-  selector:
-    app: springboot-react-app
----
-apiVersion: v1
-kind: Service
-metadata:
-  labels:
-    app: springboot-react-app
-  name: spring-react-loadbalancer
-spec:
-  ports:
-  - name: spring-app
     port: 80  # External port for LoadBalancer
-    targetPort: 8080  # Target port for Spring Boot
-  - name: react-app
-    port: 8081  # External port for LoadBalancer
-    targetPort: 80  # Target port for React
+    targetPort: 3000  # Target port for React
   selector:
     app: springboot-react-app
   type: LoadBalancer

@@ -18,7 +18,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 2000
-      - name: spring-app
+      - name: react-app
         image: yassinemaadane/react-app
         imagePullPolicy: Always
         ports:

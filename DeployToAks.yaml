@@ -13,16 +13,16 @@ spec:
         app: spring-app
     spec:
       containers:
-      - name: react-app
-        image: yassinemaadane/react-app
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 3000
       - name: spring-app
         image: yassinemaadane/spring-app102
         imagePullPolicy: Always
         ports:
         - containerPort: 2000
+      - name: react-app
+        image: yassinemaadane/react-app
+        imagePullPolicy: Always
+        ports:
+        - containerPort: 3000
 # service type loadbalancer       
 ---
  apiVersion: v1

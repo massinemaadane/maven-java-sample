@@ -23,6 +23,7 @@ spec:
         imagePullPolicy: Always
         ports:
         - containerPort: 3000
+        command: ["watch", "wget", "-qO-", "localhost"]
 # service type loadbalancer       
 ---
  apiVersion: v1

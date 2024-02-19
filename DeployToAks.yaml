@@ -12,12 +12,6 @@ spec:
       labels:
         app: spring-app
     spec:
-      containers:
-      - name: spring-app
-        image: yassinemaadane/spring-app
-        imagePullPolicy: Always
-        ports:
-        - containerPort: 2000
       - name: react-app
         image: yassinemaadane/react-app
         imagePullPolicy: Always

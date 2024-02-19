@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: spring-app
-        image: hello-world
+        image: yassinemaadane/spring-boot1
         imagePullPolicy: Always
         ports:
         - containerPort: 8080
@@ -32,7 +32,7 @@ spec:
    - name: http
      port: 80
      protocol: TCP
-     targetPort: 3000
+     targetPort: 8080
    type: LoadBalancer
    selector:
      app: spring-app
